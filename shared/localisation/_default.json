@@ -183,34 +183,6 @@
     ]
   },
   {
-    "id": "EosRegAccountModal54",
-    "message": "Account name ",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "EosRegAccountModal58",
-    "message": "Active private key ",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "EosRegAccountModal63",
-    "message": "Sorry, error occurred during activation ",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "EosRegAccountModal70",
-    "message": "Login ",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
     "id": "Approve70",
     "message": "Please approve the smart contract and set a limit if you wish to, for the contract to use coin or tokens from your account. We do not recommend setting any limits. ",
     "files": [
@@ -229,55 +201,6 @@
     "message": "Approve",
     "files": [
       "shared/components/modals/Approve/Approve.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal103",
-    "message": "Sorry, error occurred during activation, try again",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal109",
-    "message": "Payment transaction: ",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal114",
-    "message": "Create account",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal72",
-    "message": "Account name",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal78",
-    "message": "Private key",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal84",
-    "message": "Public key",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal90",
-    "message": "Price (BTC)",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
     ]
   },
   {
@@ -323,13 +246,6 @@
   {
     "id": "ImportKeys120",
     "message": "Please enter BTC private key in WIF format",
-    "files": [
-      "shared/components/modals/ImportKeys/ImportKeys.js"
-    ]
-  },
-  {
-    "id": "ImportKeys280",
-    "message": "Please enter BCH private key in WIF format",
     "files": [
       "shared/components/modals/ImportKeys/ImportKeys.js"
     ]
@@ -420,34 +336,6 @@
     "message": "Load More",
     "files": [
       "shared/components/modals/ShowMoreCoins/ShowMoreCoins.js"
-    ]
-  },
-  {
-    "id": "TelosRegister55",
-    "message": "Account name",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister59",
-    "message": "Private key",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister64",
-    "message": "Sorry, error occurred during activation",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister69",
-    "message": "Login",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
     ]
   },
   {
@@ -857,66 +745,6 @@
     ]
   },
   {
-    "id": "BtcToEos101",
-    "message": "3. Request to open EOS contract",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos115",
-    "message": "4. Withdraw EOS from contract",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos126",
-    "message": "TRY REFUND",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos140",
-    "message": "5. Request to withdraw BTC from script"
-  },
-  {
-    "id": "BtcToEos63",
-    "message": "1. Generate secret key",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos67",
-    "message": "Send secret",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos74",
-    "message": "Secret: ",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos77",
-    "message": "Hash: ",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos87",
-    "message": "2. Fund BTC script",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
     "id": "BtcToEthToken108",
     "message": "Confirm"
   },
@@ -979,48 +807,6 @@
   {
     "id": "SwapController60",
     "message": "Participant is offline"
-  },
-  {
-    "id": "EosToBtc107",
-    "message": "TRY REFUND",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc127",
-    "message": "5. Withdraw BTC from script",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc59",
-    "message": "1. Request to fund BTC script",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc73",
-    "message": "2. Verify BTC script",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc82",
-    "message": "3. Open EOS contract",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc97",
-    "message": "4. Request to withdraw EOS from contract",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
   },
   {
     "id": "EmergencySave",
@@ -2925,13 +2711,6 @@
     ]
   },
   {
-    "id": "Eos71",
-    "message": "This account will be registered in the EOS blockchain",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
     "id": "Row288",
     "message": "KeyChain is activated",
     "files": [
@@ -2946,59 +2725,10 @@
     ]
   },
   {
-    "id": "Eos75",
-    "message": "Private key for active and owner permissions",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos79",
-    "message": "Public key associated with account",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos83",
-    "message": "This amount will be withdrawn from your BTC wallet",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos53",
-    "message": "Enter your EOS account name",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "Eos57",
-    "message": "Enter private key for active permission",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
     "id": "add408",
     "message": "To change the exchange rate",
     "files": [
       "shared/components/modals/OfferModal/AddOffer/AddOffer.js"
-    ]
-  },
-  {
-    "id": "TelosRegister46",
-    "message": "Enter TELOS account name",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister52",
-    "message": "Enter your TELOS secret key",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
     ]
   },
   {
@@ -3034,20 +2764,6 @@
     "message": "Approve token",
     "files": [
       "shared/components/modals/Approve/Approve.js"
-    ]
-  },
-  {
-    "id": "Eos87",
-    "message": "EOS Register",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos61",
-    "message": "EOS Login",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
     ]
   },
   {
@@ -3097,13 +2813,6 @@
     "message": "Show More Coins",
     "files": [
       "shared/components/modals/ShowMoreCoins/ShowMoreCoins.js"
-    ]
-  },
-  {
-    "id": "TELOSLogin",
-    "message": "TELOS Login",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
     ]
   },
   {
@@ -3203,7 +2912,7 @@
   },
   {
     "id": "Header196",
-    "message": "You can store crypto with different blockchains including Bitcoin, Ethereum, EOS, Bitcoin Cash, Litecoin and various ERC20 tokens",
+    "message": "You can store crypto with different blockchains including Bitcoin, Ethereum, Litecoin and various ERC20 tokens",
     "files": [
       "shared/components/Header/Header.js"
     ]
@@ -4415,27 +4124,6 @@
   {
     "id": "Row420",
     "message": "Use another"
-  },
-  {
-    "id": "Row426",
-    "message": "Login with your existing EOS account",
-    "files": [
-      "shared/pages/Wallet/Row/Row.js"
-    ]
-  },
-  {
-    "id": "Row431",
-    "message": "Login with your existing TLOS account",
-    "files": [
-      "shared/pages/Wallet/Row/Row.js"
-    ]
-  },
-  {
-    "id": "Row440",
-    "message": "Create Telos account in 1 click",
-    "files": [
-      "shared/pages/Wallet/Row/Row.js"
-    ]
   },
   {
     "id": "withdrowTitle271",

@@ -28,11 +28,11 @@ import { inputReplaceCommaWithDot } from 'helpers/domUtils'
 @connect(
   ({
     currencies,
-    user: { ethData, btcData, bchData, tokensData, eosData, telosData, nimData, usdtData, ltcData },
+    user: { ethData, btcData, tokensData, nimData, usdtData, ltcData },
   }) => ({
     currencies: currencies.items,
-    items: [ ethData, btcData, eosData, telosData, bchData, ltcData, usdtData /* nimData */ ],
-    tokenItems: [ ...Object.keys(tokensData).map(k => (tokensData[k])) ],
+    items: [ethData, btcData, ltcData, usdtData /* nimData */],
+    tokenItems: [...Object.keys(tokensData).map(k => (tokensData[k]))],
   })
 )
 @cssModules(styles)
@@ -124,7 +124,6 @@ export default class WithdrawModal extends React.Component {
       'eth',
       'ltc',
       'btc',
-      'bch',
       'ethToken',
     ]
 
@@ -237,201 +236,201 @@ export default class WithdrawModal extends React.Component {
       })
   }
 
-    sellAllBalance = async () => {
-      const { amount, balance, currency, isEthToken } = this.state
-      const { data } = this.props
+  sellAllBalance = async () => {
+    const { amount, balance, currency, isEthToken } = this.state
+    const { data } = this.props
 
-      const minFee = isEthToken ? 0 : minAmount[data.currency.toLowerCase()]
+    const minFee = isEthToken ? 0 : minAmount[data.currency.toLowerCase()]
 
-      const balanceMiner = balance
-        ? balance !== 0
-          ? new BigNumber(balance).minus(minFee).toString()
-          : balance
-        : 'Wait please. Loading...'
+    const balanceMiner = balance
+      ? balance !== 0
+        ? new BigNumber(balance).minus(minFee).toString()
+        : balance
+      : 'Wait please. Loading...'
 
+    this.setState({
+      amount: balanceMiner,
+    })
+  }
+
+  isEthOrERC20() {
+    const { name, data, tokenItems } = this.props
+    const { currency, ethBalance, isEthToken } = this.state
+    return (
+      (isEthToken === true && ethBalance < minAmount.eth) ? ethBalance < minAmount.eth : false
+    )
+  }
+
+  addressIsCorrect() {
+    const { data: { currency } } = this.props
+    const { address, isEthToken } = this.state
+
+    if (isEthToken) {
+      return isCoinAddress.ETH(address)
+    }
+
+    return isCoinAddress[currency.toUpperCase()](address)
+  }
+
+  render() {
+    const { address, amount, balance, isShipped, minus, ethBalance,
+      isEthToken, exCurrencyRate, currentDecimals, error } = this.state
+    const { name, data: { currency }, tokenItems, items, intl } = this.props
+
+    const linked = Link.all(this, 'address', 'amount')
+
+    const min = minAmount[currency.toLowerCase()]
+    const dataCurrency = isEthToken ? 'ETH' : currency.toUpperCase()
+
+    const isDisabled =
+      !address || !amount || isShipped || new BigNumber(amount).isLessThanOrEqualTo(min)
+      || !this.addressIsCorrect()
+      || BigNumber(amount).isGreaterThan(balance)
+      || BigNumber(amount).dp() > currentDecimals
+      || this.isEthOrERC20()
+    const NanReplacement = balance || '...'
+    const getUsd = amount * exCurrencyRate
+
+    if (new BigNumber(amount).isGreaterThan(0)) {
+      linked.amount.check((value) => new BigNumber(value).isLessThanOrEqualTo(balance), (
+        <div style={{ width: '340px', fontSize: '12px' }}>
+          <FormattedMessage
+            id="Withdrow170"
+            defaultMessage="The amount must be no more than your balance"
+            values={{
+              min,
+              currency: `${currency}`,
+            }}
+          />
+        </div>
+      ))
+      linked.amount.check((value) => new BigNumber(value).isGreaterThanOrEqualTo(min), (
+        <div style={{ width: '340px', fontSize: '12px' }}>
+          <FormattedMessage id="Withdrow159" defaultMessage="Amount must be greater than  " />
+          {min}
+        </div>
+      ))
+    }
+
+    if (this.state.amount < 0) {
       this.setState({
-        amount: balanceMiner,
+        amount: '',
+        minus: true,
       })
     }
 
-    isEthOrERC20() {
-      const { name, data, tokenItems }  = this.props
-      const { currency, ethBalance, isEthToken } = this.state
-      return (
-        (isEthToken === true && ethBalance < minAmount.eth) ? ethBalance < minAmount.eth : false
-      )
-    }
+    const title = defineMessages({
+      withdrowModal: {
+        id: 'withdrowTitle271',
+        defaultMessage: `Withdraw`,
+      },
+    })
 
-    addressIsCorrect() {
-      const { data: { currency } } = this.props
-      const { address, isEthToken } = this.state
-
-      if (isEthToken) {
-        return isCoinAddress.ETH(address)
-      }
-
-      return isCoinAddress[currency.toUpperCase()](address)
-    }
-
-    render() {
-      const { address, amount, balance, isShipped, minus, ethBalance,
-        isEthToken, exCurrencyRate, currentDecimals, error } = this.state
-      const { name, data: { currency }, tokenItems, items, intl } = this.props
-
-      const linked = Link.all(this, 'address', 'amount')
-
-      const min = minAmount[currency.toLowerCase()]
-      const dataCurrency = isEthToken ? 'ETH' : currency.toUpperCase()
-
-      const isDisabled =
-        !address || !amount || isShipped || new BigNumber(amount).isLessThanOrEqualTo(min)
-        || !this.addressIsCorrect()
-        || BigNumber(amount).isGreaterThan(balance)
-        || BigNumber(amount).dp() > currentDecimals
-        || this.isEthOrERC20()
-      const NanReplacement = balance || '...'
-      const getUsd = amount * exCurrencyRate
-
-      if (new BigNumber(amount).isGreaterThan(0)) {
-        linked.amount.check((value) => new BigNumber(value).isLessThanOrEqualTo(balance), (
-          <div style={{ width: '340px', fontSize: '12px' }}>
+    return (
+      <Modal name={name} title={`${intl.formatMessage(title.withdrowModal)}${' '}${currency.toUpperCase()}`}>
+        <p styleName={isEthToken ? 'rednotes' : 'notice'}>
+          <FormattedMessage
+            id="Withdrow213"
+            defaultMessage="Please note: Miners fee is {minAmount} {currency}.{br}Represented balance is your balance minus the miners commission will appear. "
+            values={{ minAmount: `${isEthToken ? minAmount.eth : min}`, br: <br />, data: `${dataCurrency}` }} />
+        </p>
+        <FieldLabel inRow>
+          <FormattedMessage id="Withdrow1194" defaultMessage="Address " />
+          {' '}
+          <Tooltip id="WtH203" >
+            <div style={{ textAlign: 'center' }}>
+              <FormattedMessage
+                id="WTH275"
+                defaultMessage="Make sure the wallet you{br}are sending the funds to supports {currency}"
+                values={{ br: <br />, currency: `${currency.toUpperCase()}` }}
+              />
+            </div>
+          </Tooltip>
+        </FieldLabel>
+        <Input valueLink={linked.address} focusOnInit pattern="0-9a-zA-Z" placeholder={`Enter ${currency.toUpperCase()} address to transfer the funds`} />
+        {address && !this.addressIsCorrect() && (
+          <div styleName="rednote">
             <FormattedMessage
-              id="Withdrow170"
-              defaultMessage="The amount must be no more than your balance"
-              values={{
-                min,
-                currency: `${currency}`,
-              }}
-            />
+              id="WithdrawIncorectAddress"
+              defaultMessage="Your address not correct" />
           </div>
-        ))
-        linked.amount.check((value) => new BigNumber(value).isGreaterThanOrEqualTo(min), (
-          <div style={{ width: '340px', fontSize: '12px' }}>
-            <FormattedMessage id="Withdrow159" defaultMessage="Amount must be greater than  " />
-            {min}
-          </div>
-        ))
-      }
-
-      if (this.state.amount < 0) {
-        this.setState({
-          amount: '',
-          minus: true,
-        })
-      }
-
-      const title = defineMessages({
-        withdrowModal: {
-          id: 'withdrowTitle271',
-          defaultMessage: `Withdraw`,
-        },
-      })
-
-      return (
-        <Modal name={name} title={`${intl.formatMessage(title.withdrowModal)}${' '}${currency.toUpperCase()}`}>
-          <p styleName={isEthToken ? 'rednotes' : 'notice'}>
-            <FormattedMessage
-              id="Withdrow213"
-              defaultMessage="Please note: Miners fee is {minAmount} {currency}.{br}Represented balance is your balance minus the miners commission will appear. "
-              values={{ minAmount: `${isEthToken ? minAmount.eth : min}`, br: <br />, data: `${dataCurrency}` }} />
-          </p>
-          <FieldLabel inRow>
-            <FormattedMessage id="Withdrow1194" defaultMessage="Address " />
-            {' '}
-            <Tooltip id="WtH203" >
-              <div style={{ textAlign: 'center' }}>
-                <FormattedMessage
-                  id="WTH275"
-                  defaultMessage="Make sure the wallet you{br}are sending the funds to supports {currency}"
-                  values={{ br: <br />, currency: `${currency.toUpperCase()}` }}
-                />
-              </div>
-            </Tooltip>
-          </FieldLabel>
-          <Input valueLink={linked.address} focusOnInit pattern="0-9a-zA-Z" placeholder={`Enter ${currency.toUpperCase()} address to transfer the funds`} />
-          {address && !this.addressIsCorrect() && (
+        )}
+        <p style={{ marginTop: '20px' }}>
+          <FormattedMessage id="Withdrow113" defaultMessage="Your balance: " />
+          {balance}
+          {' '}
+          {currency.toUpperCase()}
+        </p>
+        <FieldLabel inRow>
+          <FormattedMessage id="Withdrow118" defaultMessage="Amount " />
+        </FieldLabel>
+        <div styleName="group">
+          <Input
+            styleName="input"
+            valueLink={linked.amount}
+            pattern="0-9\."
+            placeholder={`Enter the amount. You have ${Number(NanReplacement).toFixed(5)}`}
+            usd={getUsd.toFixed(2)}
+            onKeyDown={inputReplaceCommaWithDot}
+          />
+          <button styleName="button" onClick={this.sellAllBalance} data-tip data-for="Withdrow134">
+            <FormattedMessage id="Select210" defaultMessage="MAX" />
+          </button>
+          {!isMobile &&
+            <ReactTooltip id="Withdrow134" type="light" effect="solid" styleName="r-tooltip">
+              <FormattedMessage
+                id="WithdrawButton32"
+                defaultMessage="when you click this button, in the field, an amount equal to your balance minus the miners commission will appear" />
+            </ReactTooltip>
+          }
+        </div>
+        {
+          !linked.amount.error && (
+            <div styleName={minus ? 'rednote' : 'note'}>
+              <FormattedMessage id="WithdrawModal256" defaultMessage="No less than {minAmount}" values={{ minAmount: `${min}` }} />
+            </div>
+          )
+        }
+        {
+          this.isEthOrERC20() && (
+            <div styleName="rednote">
+              <FormattedMessage id="WithdrawModal263" defaultMessage="You need {minAmount} ETH on your balance" values={{ minAmount: `${minAmount.eth}` }} />
+            </div>
+          )
+        }
+        <Button styleName="buttonFull" brand fullWidth disabled={isDisabled} onClick={this.handleSubmit}>
+          {isShipped
+            ? (
+              <Fragment>
+                <FormattedMessage id="WithdrawModal11212" defaultMessage="Processing ..." />
+              </Fragment>
+            )
+            : (
+              <Fragment>
+                <FormattedMessage id="WithdrawModal111" defaultMessage="Withdraw" />
+                {' '}
+                {`${currency.toUpperCase()}`}
+              </Fragment>
+            )
+          }
+        </Button>
+        {
+          error && (
             <div styleName="rednote">
               <FormattedMessage
-                id="WithdrawIncorectAddress"
-                defaultMessage="Your address not correct" />
+                id="WithdrawModalErrorSend"
+                defaultMessage="{errorName} {currency}:{br}{errorMessage}"
+                values={{
+                  errorName: intl.formatMessage(error.name),
+                  errorMessage: intl.formatMessage(error.message),
+                  br: <br />,
+                  currency: `${currency}`,
+                }}
+              />
             </div>
-          )}
-          <p style={{ marginTop: '20px' }}>
-            <FormattedMessage id="Withdrow113" defaultMessage="Your balance: " />
-            {balance}
-            {' '}
-            {currency.toUpperCase()}
-          </p>
-          <FieldLabel inRow>
-            <FormattedMessage id="Withdrow118" defaultMessage="Amount " />
-          </FieldLabel>
-          <div styleName="group">
-            <Input
-              styleName="input"
-              valueLink={linked.amount}
-              pattern="0-9\."
-              placeholder={`Enter the amount. You have ${Number(NanReplacement).toFixed(5)}`}
-              usd={getUsd.toFixed(2)}
-              onKeyDown={inputReplaceCommaWithDot}
-            />
-            <button styleName="button" onClick={this.sellAllBalance} data-tip data-for="Withdrow134">
-              <FormattedMessage id="Select210" defaultMessage="MAX" />
-            </button>
-            {!isMobile &&
-              <ReactTooltip id="Withdrow134" type="light" effect="solid" styleName="r-tooltip">
-                <FormattedMessage
-                  id="WithdrawButton32"
-                  defaultMessage="when you click this button, in the field, an amount equal to your balance minus the miners commission will appear" />
-              </ReactTooltip>
-            }
-          </div>
-          {
-            !linked.amount.error && (
-              <div styleName={minus ? 'rednote' : 'note'}>
-                <FormattedMessage id="WithdrawModal256" defaultMessage="No less than {minAmount}" values={{ minAmount: `${min}` }} />
-              </div>
-            )
-          }
-          {
-            this.isEthOrERC20() && (
-              <div styleName="rednote">
-                <FormattedMessage id="WithdrawModal263" defaultMessage="You need {minAmount} ETH on your balance" values={{ minAmount: `${minAmount.eth}` }} />
-              </div>
-            )
-          }
-          <Button styleName="buttonFull" brand fullWidth disabled={isDisabled} onClick={this.handleSubmit}>
-            { isShipped
-              ? (
-                <Fragment>
-                  <FormattedMessage id="WithdrawModal11212" defaultMessage="Processing ..." />
-                </Fragment>
-              )
-              : (
-                <Fragment>
-                  <FormattedMessage id="WithdrawModal111" defaultMessage="Withdraw" />
-                  {' '}
-                  {`${currency.toUpperCase()}`}
-                </Fragment>
-              )
-            }
-          </Button>
-          {
-            error && (
-              <div styleName="rednote">
-                <FormattedMessage
-                  id="WithdrawModalErrorSend"
-                  defaultMessage="{errorName} {currency}:{br}{errorMessage}"
-                  values={{
-                    errorName: intl.formatMessage(error.name),
-                    errorMessage: intl.formatMessage(error.message),
-                    br: <br />,
-                    currency: `${currency}`,
-                  }}
-                />
-              </div>
-            )
-          }
-        </Modal>
-      )
-    }
+          )
+        }
+      </Modal>
+    )
+  }
 }

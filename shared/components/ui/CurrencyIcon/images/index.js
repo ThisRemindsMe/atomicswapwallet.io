@@ -4,9 +4,8 @@ import icx from './icx.svg'
 import waves from './waves.svg'
 import xrp from './xrp.svg'
 import xlm from './xlm.svg'
-// import bch from './bch.svg'
+
 import nim from './nim.svg'
-import eos from './eos.png'
 import swap from './swap.png'
 import usdt from './usdt.png'
 import syc2 from './syc2.svg'
@@ -35,7 +34,6 @@ import tusd from './tusd.png'
 import dai from './dai.svg'
 import mth from './mth.png'
 import gusd from './gusd.png'
-import tlos from './tlos.png'
 import ext from './ext.png'
 import bnt from './bnt.png'
 import dent from './dent.png'
@@ -67,7 +65,6 @@ export default {
   bxb,
   kn,
   ltc,
-  bch: btc,
   drt,
   xlm,
   lev,
@@ -80,7 +77,6 @@ export default {
   swap,
   waves,
   xrp,
-  eos,
   yup,
   nim,
 
@@ -99,7 +95,6 @@ export default {
   dai,
   mth,
   gusd,
-  tlos,
   ext,
   bnt,
   dent,

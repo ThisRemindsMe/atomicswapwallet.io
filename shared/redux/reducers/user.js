@@ -13,13 +13,6 @@ export const initialState = {
     fullName: 'Bitcoin',
     balanceError: null,
   },
-  bchData: {
-    balance: 0,
-    isBalanceFetched: false,
-    currency: 'BCH',
-    fullName: 'BitcoinCash',
-    balanceError: null,
-  },
   /*
   xlmData: {
     balance: 0,
@@ -49,24 +42,6 @@ export const initialState = {
     isBalanceFetched: false,
     currency: 'NIM',
     fullName: 'Nimiq',
-    balanceError: null,
-  },
-  eosData: {
-    balance: 0,
-    address: '',
-    isAccountActivated: false,
-    isActivationPaymentSent: false,
-    isBalanceFetched: true,
-    currency: 'EOS',
-    fullName: 'Eos',
-    balanceError: null,
-  },
-  telosData: {
-    balance: 0,
-    address: '',
-    isBalanceFetched: true,
-    currency: 'TLOS',
-    fullName: 'Telos',
     balanceError: null,
   },
   tokensData: {},

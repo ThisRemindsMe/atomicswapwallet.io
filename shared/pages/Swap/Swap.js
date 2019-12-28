@@ -31,14 +31,14 @@ const isWidgetBuild = config && config.isWidget
 
 @injectIntl
 @connect(({
-  user: { ethData, btcData, /* bchData, */ tokensData, eosData, telosData, nimData, usdtData, ltcData },
+  user: { ethData, btcData, tokensData, nimData, usdtData, ltcData },
   ipfs: { peer },
   rememberedOrders,
 }) => ({
-  items: [ ethData, btcData, eosData, telosData, /* bchData, */ ltcData, usdtData /* nimData */ ],
-  tokenItems: [ ...Object.keys(tokensData).map(k => (tokensData[k])) ],
-  currenciesData: [ ethData, btcData, eosData, telosData, /* bchData, */ ltcData, usdtData /* nimData */ ],
-  tokensData: [ ...Object.keys(tokensData).map(k => (tokensData[k])) ],
+  items: [ethData, btcData, ltcData, usdtData /* nimData */],
+  tokenItems: [...Object.keys(tokensData).map(k => (tokensData[k]))],
+  currenciesData: [ethData, btcData, ltcData, usdtData /* nimData */],
+  tokensData: [...Object.keys(tokensData).map(k => (tokensData[k]))],
   errors: 'api.errors',
   checked: 'api.checked',
   decline: rememberedOrders.savedOrders,
@@ -73,7 +73,7 @@ export default class SwapComponent extends PureComponent {
 
   componentWillMount() {
     const { items, tokenItems, currenciesData, tokensData, intl: { locale }, deletedOrders } = this.props
-    let { match : { params : { orderId } }, history, location: { pathname } } = this.props
+    let { match: { params: { orderId } }, history, location: { pathname } } = this.props
 
     this.wallets = {}
     currenciesData.forEach(item => {
@@ -148,7 +148,7 @@ export default class SwapComponent extends PureComponent {
 
   componentDidMount() {
     const { swap: { id, flow: { state: { canCreateEthTransaction, requireWithdrawFeeSended, step } } }, continueSwap, deletedOrders } = this.state
-    let { match : { params : { orderId } } } = this.props
+    let { match: { params: { orderId } } } = this.props
     if (localStorage.getItem('deletedOrders') !== null) {
 
       if (localStorage.getItem('deletedOrders').includes(id)) {
@@ -212,7 +212,7 @@ export default class SwapComponent extends PureComponent {
   }
 
   cancelSwap = () => {
-    let { match : { params : { orderId } }, history, location: { pathname }, intl: { locale } } = this.props
+    let { match: { params: { orderId } }, history, location: { pathname }, intl: { locale } } = this.props
     const { swap: { flow: { state: { step } }, sellCurrency }, swap } = this.state
 
     this.state.swap.flow.stopSwapProcess()

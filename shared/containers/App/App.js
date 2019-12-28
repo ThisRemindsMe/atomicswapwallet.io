@@ -107,7 +107,7 @@ export default class App extends React.Component {
 
   render() {
     const { fetching, multiTabs, error } = this.state
-    const { children, ethAddress, btcAddress, tokenAddress, history /* eosAddress */ } = this.props
+    const { children, ethAddress, btcAddress, tokenAddress, history } = this.props
     const isFetching = !ethAddress || !btcAddress || (!tokenAddress && config && !config.isWidget) || !fetching
 
     const isWidget = history.location.pathname.includes('/exchange') && history.location.hash === '#widget'
@@ -152,7 +152,7 @@ export default class App extends React.Component {
             </main>
           </WidthContainer>
           <Core />
-          { !isMobile && <Footer /> }
+          {!isMobile && <Footer />}
           <RequestLoader />
           <ModalConductor />
           <NotificationConductor />
@@ -165,8 +165,8 @@ export default class App extends React.Component {
           {mainContent}
         </HashRouter>
       ) : (
-        mainContent
-      )
+          mainContent
+        )
     )
   }
 }

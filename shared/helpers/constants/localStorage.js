@@ -11,12 +11,8 @@ export default {
   wasCautionPassed: 'wasCautionPassed',
   hiddenCoinsList: 'hiddenCoinsList',
   privateKeysSaved: 'privateKeysSaved',
-  telosRegistrated: 'telosRegistrated',
   demoMoneyReceived: 'demoMoneyReceived',
   wasOnExchange: 'wasOnExchange',
   didOpenSignUpModal: 'didOpenSignUpModal',
-  eosAccountActivated: `${process.env.ENTRY}:eos:activationFlag`,
-  telosAccountActivated: `${process.env.ENTRY}:telos:activationFlag`,
-  eosActivationPayment: `${process.env.ENTRY}:eos:activationPayment`,
   lastCheckBalance: 'lastCheckBalance',
 }
