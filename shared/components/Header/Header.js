@@ -67,7 +67,7 @@ export default class Header extends Component {
   }
 
   static getDerivedStateFromProps({ history: { location: { pathname } } }) {
-    if  (pathname === '/ru' || pathname === '/') {
+    if (pathname === '/ru' || pathname === '/') {
       return { path: true }
     }
     return { path: false }
@@ -198,7 +198,7 @@ export default class Header extends Component {
     await history.push(localisedUrl(locale, link))
   }
 
-  handleScroll = () =>  {
+  handleScroll = () => {
     if (this.props.history.location.pathname === '/') {
       this.setState(() => ({ sticky: false }))
       return
@@ -311,7 +311,7 @@ const tourSteps = [
   },
   {
     selector: '[data-tut="reactour__store"]',
-    content: <FormattedMessage id="Header196" defaultMessage="You can store various cryptocurrencies with different blockchains including Bitcoin, Ethereum, EOS, Bitcoin Cash, Litecoin and various ERC20 tokens." />,
+    content: <FormattedMessage id="Header196" defaultMessage="You can store various cryptocurrencies with different blockchains including Bitcoin, Ethereum, Litecoin and various ERC20 tokens." />,
   },
   {
     selector: '[data-tut="reactour__exchange"]',

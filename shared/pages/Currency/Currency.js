@@ -28,10 +28,10 @@ import CloseIcon from 'components/ui/CloseIcon/CloseIcon'
 @withRouter
 @connect(({
   core: { hiddenCoinsList },
-  user: { ethData, btcData, ltcData, tokensData, telosData, eosData, nimData, usdtData } }) => ({
-  items: [ ethData, btcData, eosData, usdtData, telosData, ltcData, ...Object.keys(tokensData).map(k => (tokensData[k])) /* nimData */ ],
-  hiddenCoinsList,
-}))
+  user: { ethData, btcData, ltcData, tokensData, nimData, usdtData } }) => ({
+    items: [ethData, btcData, usdtData, ltcData, ...Object.keys(tokensData).map(k => (tokensData[k])) /* nimData */],
+    hiddenCoinsList,
+  }))
 @CSSModules(styles, { allowMultiple: true })
 export default class Currency extends Component {
 
@@ -57,7 +57,7 @@ export default class Currency extends Component {
 
 
   getRows = () => {
-    let { match:{ params: { currency, address } }, items } = this.props
+    let { match: { params: { currency, address } }, items } = this.props
     currency = currency.toLowerCase()
 
     return constants.tradeTicker
@@ -80,7 +80,7 @@ export default class Currency extends Component {
   getCoin = () => [...this.props.items, ...this.props.tokens].find(coin => coin.currency.toLowerCase() === this.getCurrencyName())
 
   handleReloadBalance = async () => {
-    let { match:{ params: { currency } } } = this.props
+    let { match: { params: { currency } } } = this.props
     currency = currency.toLowerCase()
 
     const balance = await actions[currency].getBalance(currency)
@@ -100,7 +100,7 @@ export default class Currency extends Component {
     actions.core.markCoinAsHidden(this.getCoin().currency)
 
   handleReceive = () => {
-    let { match:{ params: { currency } }, items } = this.props
+    let { match: { params: { currency } }, items } = this.props
     const itemCurrency = items.filter(item => item.currency.toLowerCase() === currency)[0]
     const { address } = itemCurrency
 
@@ -113,7 +113,7 @@ export default class Currency extends Component {
   }
 
   handleWithdraw = () => {
-    let { match:{ params: { currency } }, items } = this.props
+    let { match: { params: { currency } }, items } = this.props
     const itemCurrency = items.filter(item => item.currency.toLowerCase() === currency)[0]
 
     // actions.analytics.dataEvent(`balances-withdraw-${currency.toLowerCase()}`)

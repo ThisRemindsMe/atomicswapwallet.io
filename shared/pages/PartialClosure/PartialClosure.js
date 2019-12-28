@@ -78,14 +78,14 @@ const bannedPeers = {} // Пиры, которые отклонили запро
   rememberedOrders,
   addPartialItems,
   core: { orders, hiddenCoinsList },
-  user: { ethData, btcData, /* bchData, */ tokensData, eosData, telosData, nimData, usdtData, ltcData },
+  user: { ethData, btcData, tokensData, nimData, usdtData, ltcData },
 }) => ({
   currencies: isExchangeAllowed(currencies.partialItems),
   allCurrencyies: currencies.items,
   addSelectedItems: isExchangeAllowed(currencies.addPartialItems),
   orders: filterIsPartial(orders),
   allOrders: orders,
-  currenciesData: [ ethData, btcData, eosData, telosData, /* bchData, */ ltcData, usdtData /* nimData */ ],
+  currenciesData: [ ethData, btcData, ltcData, usdtData /* nimData */ ],
   tokensData: [ ...Object.keys(tokensData).map(k => (tokensData[k])) ],
   decline: rememberedOrders.savedOrders,
   hiddenCoinsList,
@@ -1065,7 +1065,7 @@ export default class PartialClosure extends Component {
               <FormattedMessage
                 id="PartialClosure562"
                 defaultMessage="Atomicswapwallet.io is a decentralized hot wallet powered by Atomic swap technology.
-                Exchange Bitcoin, USD Tether, BCH, EOS within seconds.
+                Exchange Bitcoin, USD Tether within seconds.
 
                 No commission for exchange (only miners fee).
 

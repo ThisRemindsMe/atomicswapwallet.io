@@ -55,7 +55,7 @@ export default class Row extends Component {
   }
 
   componentWillMount() {
-    const { row: {  sellCurrency, isMy, buyCurrency } } = this.props
+    const { row: { sellCurrency, isMy, buyCurrency } } = this.props
     if (isMy) {
       this.checkBalance(sellCurrency)
     } else {
@@ -99,7 +99,7 @@ export default class Row extends Component {
 
   handleGoTrade = async (currency) => {
     const balance = await actions.eth.getBalance()
-    return (balance >= 0.005 || currency.toLowerCase() === 'eos')
+    return balance >= 0.005
   }
 
   sendRequest = (orderId, currency) => {
@@ -153,7 +153,7 @@ export default class Row extends Component {
             action: `${type === PAIR_TYPES.BID
               ? intl.formatMessage(messages.sell)
               : intl.formatMessage(messages.buy)
-            }`,
+              }`,
             amount: `${amount.toFixed(5)}`,
             main: `${main}`,
             total: `${total.toFixed(5)}`,
@@ -179,7 +179,7 @@ export default class Row extends Component {
         isRequested,
         isProcessing,
         sellCurrency,
-        owner: {  peer: ownerPeer },
+        owner: { peer: ownerPeer },
       },
       removeOrder,
       intl: { locale },
@@ -231,51 +231,51 @@ export default class Row extends Component {
             peer === ownerPeer ? (
               <RemoveButton onClick={() => removeOrder(id)} />
             ) : (
-              <Fragment>
-                {
-                  isRequested ? (
-                    <Fragment>
-                      <div style={{ color: 'red' }}>
-                        <FormattedMessage id="Row148" defaultMessage="REQUESTING" />
-                      </div>
-                      <Link to={`${localisedUrl(locale, links.swap)}/${buyCurrency}-${sellCurrency}/${id}`}>
-                        <FormattedMessage id="Row151" defaultMessage="Go to the swap" />
-                      </Link>
-                    </Fragment>
-                  ) : (
-                    isProcessing ? (
-                      <span>
-                        <FormattedMessage id="Row157" defaultMessage="This order is in execution" />
-                      </span>
+                <Fragment>
+                  {
+                    isRequested ? (
+                      <Fragment>
+                        <div style={{ color: 'red' }}>
+                          <FormattedMessage id="Row148" defaultMessage="REQUESTING" />
+                        </div>
+                        <Link to={`${localisedUrl(locale, links.swap)}/${buyCurrency}-${sellCurrency}/${id}`}>
+                          <FormattedMessage id="Row151" defaultMessage="Go to the swap" />
+                        </Link>
+                      </Fragment>
                     ) : (
-                      isFetching ? (
-                        <Fragment>
-                          <InlineLoader />
-                          <br />
+                        isProcessing ? (
                           <span>
-                            <FormattedMessage id="Row165" defaultMessage="Please wait while we confirm your request" />
+                            <FormattedMessage id="Row157" defaultMessage="This order is in execution" />
                           </span>
-                        </Fragment>
-                      ) : (
-                        <RequestButton
-                          disabled={balance >= Number(buyAmount)}
-                          onClick={() => this.сheckDeclineOrders(id, isMy ? sellCurrency : buyCurrency)}
-                          data={{ type, amount, main, total, base }}
-                        >
-                          {type === PAIR_TYPES.BID ? <FormattedMessage id="Row2061" defaultMessage="Sell" /> : <FormattedMessage id="Row206" defaultMessage="Buy" />}
-                          {' '}
-                          {amount.toFixed(5)}{' '}{main}
-                          <br />
-                          <FormattedMessage id="Row210" defaultMessage="for" />
-                          {' '}
-                          {total.toFixed(5)}{' '}{base}
-                        </RequestButton>
+                        ) : (
+                            isFetching ? (
+                              <Fragment>
+                                <InlineLoader />
+                                <br />
+                                <span>
+                                  <FormattedMessage id="Row165" defaultMessage="Please wait while we confirm your request" />
+                                </span>
+                              </Fragment>
+                            ) : (
+                                <RequestButton
+                                  disabled={balance >= Number(buyAmount)}
+                                  onClick={() => this.сheckDeclineOrders(id, isMy ? sellCurrency : buyCurrency)}
+                                  data={{ type, amount, main, total, base }}
+                                >
+                                  {type === PAIR_TYPES.BID ? <FormattedMessage id="Row2061" defaultMessage="Sell" /> : <FormattedMessage id="Row206" defaultMessage="Buy" />}
+                                  {' '}
+                                  {amount.toFixed(5)}{' '}{main}
+                                  <br />
+                                  <FormattedMessage id="Row210" defaultMessage="for" />
+                                  {' '}
+                                  {total.toFixed(5)}{' '}{base}
+                                </RequestButton>
+                              )
+                          )
                       )
-                    )
-                  )
-                }
-              </Fragment>
-            )
+                  }
+                </Fragment>
+              )
           }
         </td>
       </tr>
@@ -294,7 +294,7 @@ export default class Row extends Component {
         sellAmount,
         isRequested,
         isProcessing,
-        owner: {  peer: ownerPeer },
+        owner: { peer: ownerPeer },
       },
       removeOrder,
       peer,
@@ -333,46 +333,46 @@ export default class Row extends Component {
                 peer === ownerPeer ? (
                   <RemoveButton onClick={() => removeOrder(id)} />
                 ) : (
-                  <Fragment>
-                    {
-                      isRequested ? (
-                        <Fragment>
-                          <div style={{ color: 'red' }}>
-                            <FormattedMessage id="RowM136" defaultMessage="REQUESTING" />
-                          </div>
-                          <Link to={`${links.swap}/${buyCurrency}-${sellCurrency}/${id}`}>
-                            <FormattedMessage id="RowM139" defaultMessage="Go to the swap" />
-                          </Link>
-                        </Fragment>
-                      ) : (
-                        isProcessing ? (
-                          <span>
-                            <FormattedMessage id="RowM145" defaultMessage="This order is in execution" />
-                          </span>
+                    <Fragment>
+                      {
+                        isRequested ? (
+                          <Fragment>
+                            <div style={{ color: 'red' }}>
+                              <FormattedMessage id="RowM136" defaultMessage="REQUESTING" />
+                            </div>
+                            <Link to={`${links.swap}/${buyCurrency}-${sellCurrency}/${id}`}>
+                              <FormattedMessage id="RowM139" defaultMessage="Go to the swap" />
+                            </Link>
+                          </Fragment>
                         ) : (
-                          isFetching ? (
-                            <Fragment>
-                              <InlineLoader />
-                              <br />
+                            isProcessing ? (
                               <span>
-                                <FormattedMessage id="RowM153" defaultMessage="Please wait while we confirm your request" />
+                                <FormattedMessage id="RowM145" defaultMessage="This order is in execution" />
                               </span>
-                            </Fragment>
-                          ) : (
-                            <RequestButton
-                              styleName="startButton"
-                              disabled={balance >= Number(buyAmount)}
-                              onClick={() => this.sendRequest(id, isMy ? sellCurrency : buyCurrency)}
-                              data={{ type, amount, main, total, base }}
-                            >
-                              <FormattedMessage id="RowM166" defaultMessage="Start" />
-                            </RequestButton>
+                            ) : (
+                                isFetching ? (
+                                  <Fragment>
+                                    <InlineLoader />
+                                    <br />
+                                    <span>
+                                      <FormattedMessage id="RowM153" defaultMessage="Please wait while we confirm your request" />
+                                    </span>
+                                  </Fragment>
+                                ) : (
+                                    <RequestButton
+                                      styleName="startButton"
+                                      disabled={balance >= Number(buyAmount)}
+                                      onClick={() => this.sendRequest(id, isMy ? sellCurrency : buyCurrency)}
+                                      data={{ type, amount, main, total, base }}
+                                    >
+                                      <FormattedMessage id="RowM166" defaultMessage="Start" />
+                                    </RequestButton>
+                                  )
+                              )
                           )
-                        )
-                      )
-                    }
-                  </Fragment>
-                )
+                      }
+                    </Fragment>
+                  )
               }
             </div>
           </div>
@@ -400,7 +400,7 @@ export default class Row extends Component {
     if (this.state.redirect) {
       return <Redirect push to={`${localisedUrl(locale, links.swap)}/${buyCurrency}-${sellCurrency}/${id}`} />
     }
-    if (this.state.windowWidth < mobileBreakpoint)  {
+    if (this.state.windowWidth < mobileBreakpoint) {
       return this.renderMobileContent()
     } else {
       return this.renderWebContent()

@@ -19,10 +19,10 @@ import config from 'app-config'
 
 
 @connect(({
-  user: { ethData, btcData, /* bchData, */ tokensData, eosData, telosData, nimData, usdtData, ltcData },
+  user: { ethData, btcData, tokensData, nimData, usdtData, ltcData },
 }) => ({
-  currenciesData: [ ethData, btcData, eosData, telosData, /* bchData, */ ltcData, usdtData /* nimData */ ],
-  tokensData: [ ...Object.keys(tokensData).map(k => (tokensData[k])) ],
+  currenciesData: [ethData, btcData, ltcData, usdtData /* nimData */],
+  tokensData: [...Object.keys(tokensData).map(k => (tokensData[k]))],
 }))
 @CSSModules(styles)
 export default class UserTooltip extends Component {
@@ -73,7 +73,7 @@ export default class UserTooltip extends Component {
     const autoAcceptTimeout = (config && config.isWidgetBuild) ? 30 : 3
     return !!feeds.length && (
       <div styleName="column" >
-        { feeds.length < 3  ? (
+        {feeds.length < 3 ? (
           feeds.map(row => {
             const { request, content: { buyAmount, buyCurrency, sellAmount, sellCurrency }, id, peer: ownerPeer } = row
             const currencyBalance = this.state.allCurrencyies.find(item => item.currency === sellCurrency).balance
@@ -114,12 +114,12 @@ export default class UserTooltip extends Component {
             )
           })
         ) : (
-          <div styleName="feed" >
-            <Link to={links.feed} >
-              <FormattedMessage id="userTooltip71" defaultMessage="Go to the feed page" />
-            </Link>
-          </div>
-        )
+            <div styleName="feed" >
+              <Link to={links.feed} >
+                <FormattedMessage id="userTooltip71" defaultMessage="Go to the feed page" />
+              </Link>
+            </div>
+          )
         }
       </div>
     )

@@ -183,34 +183,6 @@
     ]
   },
   {
-    "id": "EosRegAccountModal54",
-    "message": "Имя пользователя",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "EosRegAccountModal58",
-    "message": "Активировать приватный ключ",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "EosRegAccountModal63",
-    "message": "Произошла ошибка при активации",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "EosRegAccountModal70",
-    "message": "Войти",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
     "id": "Approve70",
     "message": "Укажите лимит суммы для Смарт контрактов. Мы не рекомендуем устанавливать какие-либо ограничения. ",
     "files": [
@@ -229,55 +201,6 @@
     "message": "Подтвердить",
     "files": [
       "shared/components/modals/Approve/Approve.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal103",
-    "message": "Произошла ошибка при активации, попробуйте снова",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal109",
-    "message": "Транзакция: ",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal114",
-    "message": "Создать аккаунт",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal72",
-    "message": "Имя аккаунта",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal78",
-    "message": "Приватный ключ ",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal84",
-    "message": "Общедоступный ключ ",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "EosBuyAccountModal90",
-    "message": "Цена (BTC) ",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
     ]
   },
   {
@@ -319,13 +242,6 @@
   {
     "id": "ImportKeys120",
     "message": "Введите Ваш BTC приватный ключ в WIF формате",
-    "files": [
-      "shared/components/modals/ImportKeys/ImportKeys.js"
-    ]
-  },
-  {
-    "id": "ImportKeys280",
-    "message": "Введите Ваш BCH приватный ключ в WIF формате",
     "files": [
       "shared/components/modals/ImportKeys/ImportKeys.js"
     ]
@@ -416,34 +332,6 @@
     "message": "Все валюты",
     "files": [
       "shared/components/modals/ShowMoreCoins/ShowMoreCoins.js"
-    ]
-  },
-  {
-    "id": "TelosRegister55",
-    "message": "Имя аккаунта",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister59",
-    "message": "Приватный ключ",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister64",
-    "message": "Произошла ошибка при активации",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister69",
-    "message": "Войти",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
     ]
   },
   {
@@ -857,62 +745,6 @@
     ]
   },
   {
-    "id": "BtcToEos101",
-    "message": "3. Запрос на открытие EOS Контракта",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos115",
-    "message": "Изъятие из EOS Контракта",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos126",
-    "message": "ПОПРОБУЙТЕ ВОЗВРАТ",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos63",
-    "message": "1. Генерируется Секретный ключ",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos67",
-    "message": "Отправить секрет",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos74",
-    "message": "Секрет: ",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos77",
-    "message": "Хэш: ",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
-    "id": "BtcToEos87",
-    "message": "Fund BTC script",
-    "files": [
-      "shared/pages/Swap/BtcToEos.js"
-    ]
-  },
-  {
     "id": "BtcToEthToken108",
     "message": "Подтвердить"
   },
@@ -967,48 +799,6 @@
   {
     "id": "BtcToEthToken87",
     "message": "1. Ожидание подтверждения"
-  },
-  {
-    "id": "EosToBtc107",
-    "message": "ПОПРОБУЙТЕ ВОЗВРАТ",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc127",
-    "message": "Withdraw BTC from script",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc59",
-    "message": "Request to fund BTC script",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc73",
-    "message": "Проверить BTC script",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc82",
-    "message": "Открыть EOS Контракт",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
-  },
-  {
-    "id": "EosToBtc97",
-    "message": "Запрос на снятие EOS с контракта",
-    "files": [
-      "shared/pages/Swap/EosToBtc.js"
-    ]
   },
   {
     "id": "EmergencySave",
@@ -2950,66 +2740,10 @@
     ]
   },
   {
-    "id": "Eos71",
-    "message": "Этот аккаунт будет зарегестрирован в сети EOS blockchain",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos75",
-    "message": "Приватный ключ для подтверждения операций ",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos79",
-    "message": "Публичный ключ, связанный с учетной записью",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos83",
-    "message": "Эта сумма будет снята с вашего BTC счета",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos53",
-    "message": "Введите Ваш EOS логин",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
-    "id": "Eos57",
-    "message": "Введите приватный ключ, для полного доступа ко всем операциям",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
-    ]
-  },
-  {
     "id": "add408",
     "message": "Для изменения курса обмена",
     "files": [
       "shared/components/modals/OfferModal/AddOffer/AddOffer.js"
-    ]
-  },
-  {
-    "id": "TelosRegister46",
-    "message": "Введите TELOS имя аккаунта",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
-    ]
-  },
-  {
-    "id": "TelosRegister52",
-    "message": "Введите Ваш TELOS секретный ключ",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
     ]
   },
   {
@@ -3045,20 +2779,6 @@
     "message": "Подтвердить токен",
     "files": [
       "shared/components/modals/Approve/Approve.js"
-    ]
-  },
-  {
-    "id": "Eos87",
-    "message": "EOS регистрация",
-    "files": [
-      "shared/components/modals/EosBuyAccountModal/EosBuyAccountModal.js"
-    ]
-  },
-  {
-    "id": "Eos61",
-    "message": "EOS вход",
-    "files": [
-      "shared/components/modals/EosRegisterModal/EosRegisterModal.js"
     ]
   },
   {
@@ -3108,13 +2828,6 @@
     "message": "Добавление токенов на главную страницу",
     "files": [
       "shared/components/modals/ShowMoreCoins/ShowMoreCoins.js"
-    ]
-  },
-  {
-    "id": "TELOSLogin",
-    "message": "TELOS вход",
-    "files": [
-      "shared/components/modals/TelosChangeAccountModal/TelosChangeAccountModal.js"
     ]
   },
   {
@@ -3214,7 +2927,7 @@
   },
   {
     "id": "Header196",
-    "message": "Вы можете хранить криптовалюты разных блокчейн сетей, таких как Bitcoin, Ethereum, EOS, Bitcoin Cash, Litecoin и различные токены",
+    "message": "Вы можете хранить криптовалюты разных блокчейн сетей, таких как Bitcoin, Ethereum,Litecoin и различные токены",
     "files": [
       "shared/components/Header/Header.js"
     ]
@@ -3802,14 +3515,14 @@
   },
   {
     "id": "Wallet156",
-    "message": "Добро пожаловать в Atomicswapwallet.io, децентрализованный кошелек с cross-chain, основанный на технологии Atomic Swap. {br}Здесь вы можете безопасно хранить и быстро обменивать Биткойны, Ethereum, EOS, USD, Tether, BCH и многочисленные токены ERC-20. {br}{br}Atomicswapwallet.io не хранит ваши ключи или токены. Наш кошелек работает непосредственно в браузере, поэтому никаких дополнительных установок или загрузок не требуется. {br}Сервис Atomicswapwallet.io полностью децентрализован, поскольку все операции с токенами выполняются через сеть IPFS. {br}{br}Наша команда была первой, кто завершил атомные свопы с USDT и EOS в сентябре 2018 года, а блокчейн Litecoin был добавлен в октябре 2018 года. {br}Наш кошелек предназначен для реальной multi-chain интеграции с децентрализованной книгой заказов, без участия третьих лиц в обмене, без использования прокси-токена и без добавления токена. {br}Мы можем бесплатно интегрировать любой токен проекта ERC-20 на случай взаимного PR-объявления. {br}{br}Кроме того, мы разработали Swap.Button, b2b-решение для обмена всех видов токенов на Биткойны и Эфириум. {br}Установите HTML-виджет Swap.Button на свой сайт и собирайте крипто-инвестиции для вашего проекта. {br}{br}Начните использовать https://Atomicswapwallet.io/ сегодня и наслаждайтесь силой настоящей децентрализации.",
+    "message": "Добро пожаловать в Atomicswapwallet.io, децентрализованный кошелек с cross-chain, основанный на технологии Atomic Swap. {br}Здесь вы можете безопасно хранить и быстро обменивать Биткойны, Ethereum, USD, Tether и многочисленные токены ERC-20. {br}{br}Atomicswapwallet.io не хранит ваши ключи или токены. Наш кошелек работает непосредственно в браузере, поэтому никаких дополнительных установок или загрузок не требуется. {br}Сервис Atomicswapwallet.io полностью децентрализован, поскольку все операции с токенами выполняются через сеть IPFS. {br}{br}Наша команда была первой, кто завершил атомные свопы с USDT в сентябре 2018 года, а блокчейн Litecoin был добавлен в октябре 2018 года. {br}Наш кошелек предназначен для реальной multi-chain интеграции с децентрализованной книгой заказов, без участия третьих лиц в обмене, без использования прокси-токена и без добавления токена. {br}Мы можем бесплатно интегрировать любой токен проекта ERC-20 на случай взаимного PR-объявления. {br}{br}Кроме того, мы разработали Swap.Button, b2b-решение для обмена всех видов токенов на Биткойны и Эфириум. {br}Установите HTML-виджет Swap.Button на свой сайт и собирайте крипто-инвестиции для вашего проекта. {br}{br}Начните использовать https://Atomicswapwallet.io/ сегодня и наслаждайтесь силой настоящей децентрализации.",
     "files": [
       "shared/pages/Wallet/Wallet.js"
     ]
   },
   {
     "id": "PartialClosure562",
-    "message": "Atomicswapwallet.io - это децентрализованный криптовалютный кошелек, работающий по технологии Atomic swap. Обмен Bitcoin, USD Tether, BCH, EOS в течение нескольких секунд. Без комиссии (только комиссия майнеров).{br}Обмен крипто-токенами в Atomicswapwallet.io проводится по-настоящему децентрализованно, так как мы используем технологию атомных свопов однорангового взаимодействия между цепями. {br}{br}Atomicswapwallet.io использует IPFS-сеть для всех рабочих процессов, а значит централизованного сервера просто нет. {br}Интерфейс обмена выглядит как крипто-брокер, а не как обычный DEX или CEX. За пару кликов пользователь может разместить и принять предложение, настроив цену отправляемого токена. {br}{br}Кроме того, пользователь может обменять заданный процент от своего количества доступных токенов (например, ½, ¼ и т. д.). {br}{br}Еще одним преимуществом службы обмена Atomicswapwallet.io является использование одного ключа для всего диапазона токенов ERC-20. {br}Кстати, если вы не заинтересованы в обмене некоторыми токенами, вы можете скрыть их из списка. {br}Используйте Atomicswapwallet.io в качестве основного обмена для каждого криптовалюты, которую вы держите и экономьте ваше время уже сегодня!",
+    "message": "Atomicswapwallet.io - это децентрализованный криптовалютный кошелек, работающий по технологии Atomic swap. Обмен Bitcoin, USD Tether в течение нескольких секунд. Без комиссии (только комиссия майнеров).{br}Обмен крипто-токенами в Atomicswapwallet.io проводится по-настоящему децентрализованно, так как мы используем технологию атомных свопов однорангового взаимодействия между цепями. {br}{br}Atomicswapwallet.io использует IPFS-сеть для всех рабочих процессов, а значит централизованного сервера просто нет. {br}Интерфейс обмена выглядит как крипто-брокер, а не как обычный DEX или CEX. За пару кликов пользователь может разместить и принять предложение, настроив цену отправляемого токена. {br}{br}Кроме того, пользователь может обменять заданный процент от своего количества доступных токенов (например, ½, ¼ и т. д.). {br}{br}Еще одним преимуществом службы обмена Atomicswapwallet.io является использование одного ключа для всего диапазона токенов ERC-20. {br}Кстати, если вы не заинтересованы в обмене некоторыми токенами, вы можете скрыть их из списка. {br}Используйте Atomicswapwallet.io в качестве основного обмена для каждого криптовалюты, которую вы держите и экономьте ваше время уже сегодня!",
     "files": [
       "shared/pages/PartialClosure/PartialClosure.js"
     ]
@@ -4404,27 +4117,6 @@
   {
     "id": "Row420",
     "message": "Использовать другой"
-  },
-  {
-    "id": "Row426",
-    "message": "Войти с вашего существующего EOS аккаунта",
-    "files": [
-      "shared/pages/Wallet/Row/Row.js"
-    ]
-  },
-  {
-    "id": "Row431",
-    "message": "Войти с вашего существующего TLOS аккаунта",
-    "files": [
-      "shared/pages/Wallet/Row/Row.js"
-    ]
-  },
-  {
-    "id": "Row440",
-    "message": "Создать Telos аккаунт в 1 клик",
-    "files": [
-      "shared/pages/Wallet/Row/Row.js"
-    ]
   },
   {
     "id": "SwapController54",

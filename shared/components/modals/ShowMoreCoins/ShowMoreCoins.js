@@ -29,11 +29,11 @@ const title2 = [
 
 @connect(({
   core: { hiddenCoinsList },
-  user: { ethData, btcData, ltcData, telosData, /* xlmData, */ bchData, tokensData, eosData, nimData, usdtData },
+  user: { ethData, btcData, ltcData, /* xlmData, */  tokensData, nimData, usdtData },
   currencies: { items: currencies },
 }) => ({
   tokens: Object.keys(tokensData).map(k => tokensData[k]),
-  items: [ethData, btcData, eosData, /* xlmData, */ usdtData, bchData, ltcData, telosData /* eosData  nimData */],
+  items: [ethData, btcData, /* xlmData, */ usdtData, ltcData, /*  nimData */],
   currencies,
   hiddenCoinsList,
 }))
@@ -52,7 +52,7 @@ export default class ShowMoreCoins extends Component {
             <Table
               className={styles.wallet}
               titles={titles}
-              rows={[...items, ...tokens].filter(coin => !hiddenCoinsList.includes(coin.currency))}
+              rows={[...items, ...tokens].filter(({ currency }) => currency && !hiddenCoinsList.includes(currency))}
               rowRender={(row, index) => <Row key={index} {...row} isHidden={false} currencies={currencies} />}
             />
           </div>
@@ -64,7 +64,7 @@ export default class ShowMoreCoins extends Component {
               <Table
                 className={styles.wallet}
                 titles={titles}
-                rows={[...items, ...tokens].filter(coin => hiddenCoinsList.includes(coin.currency))}
+                rows={[...items, ...tokens].filter(({ currency }) => currency && hiddenCoinsList.includes(currency))}
                 rowRender={(row, index) => <Row key={index} {...row} isHidden currencies={currencies} />}
               />
             </div>

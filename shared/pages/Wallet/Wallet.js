@@ -34,7 +34,7 @@ const isWidgetBuild = config && config.isWidget
 @connect(
   ({
     core: { hiddenCoinsList },
-    user: { ethData, btcData, bchData, tokensData, eosData, /* xlmData, */ telosData, nimData, usdtData, ltcData },
+    user: { ethData, btcData, tokensData, /* xlmData, nimData, */ usdtData, ltcData },
     currencies: { items: currencies },
   }) => ({
     tokens: ((config && config.isWidget) ?
@@ -45,11 +45,11 @@ const isWidgetBuild = config && config.isWidget
     items: ((config && config.isWidget) ?
       [btcData, ethData, usdtData ]
       :
-      [btcData, bchData, ethData, eosData, telosData, /* xlmData, */ ltcData, usdtData /* nimData */ ]).map((data) => (
+      [btcData, ethData, /* xlmData, */ ltcData, usdtData /* nimData */ ]).map((data) => (
       data.currency
     )),
     currencyBalance: [
-      btcData, bchData, ethData, eosData, /* xlmData, */ telosData, ltcData, usdtData, ...Object.keys(tokensData).map(k => (tokensData[k])), /* nimData */
+      btcData, ethData, /* xlmData, */ ltcData, usdtData, ...Object.keys(tokensData).map(k => (tokensData[k])), /* nimData */
     ].map(({ balance, currency }) => ({
       balance,
       name: currency,
@@ -57,7 +57,7 @@ const isWidgetBuild = config && config.isWidget
     currencies,
     hiddenCoinsList : (config && config.isWidget) ? [] : hiddenCoinsList,
     userEthAddress: ethData.address,
-    tokensData: { ethData, btcData, bchData, ltcData, eosData, telosData, usdtData },
+    tokensData: { ethData, btcData, ltcData, usdtData },
   })
 )
 @injectIntl
@@ -176,16 +176,14 @@ export default class Wallet extends Component {
     const isFirstCheck = moment(now, 'HH:mm:ss DD/MM/YYYY ZZ').isSame(lastCheckMoment)
     const isOneHourAfter = moment(now, 'HH:mm:ss DD/MM/YYYY ZZ').isAfter(lastCheckMoment.add(1, 'hours'))
 
-    const { ethData, btcData, bchData, ltcData } = this.props.tokensData
+    const { ethData, btcData, ltcData } = this.props.tokensData
 
     const balancesData = {
       ethBalance: ethData.balance,
       btcBalance: btcData.balance,
-      bchBalance: bchData.balance,
       ltcBalance: ltcData.balance,
       ethAddress: ethData.address,
-      btcAddress: btcData.address,
-      bchAddress: bchData.address,
+      btcAddress: btcData.address,      
       ltcAddress: ltcData.address,
     }
 
@@ -235,8 +233,6 @@ export default class Wallet extends Component {
 
     const sectionWalletStyleName = isMobile ? 'sectionWalletMobile' : 'sectionWallet'
 
-    this.forceCautionUserSaveMoney()
-
     return (
       <section styleName={isWidgetBuild ? `${sectionWalletStyleName} ${sectionWalletStyleName}_widget` : sectionWalletStyleName}>
         <PageSeo
@@ -268,12 +264,11 @@ export default class Wallet extends Component {
           </div>
         )}
 
-
         <Table
           id="table-wallet"
           className={styles.wallet}
           titles={titles}
-          rows={[...items, ...tokens].filter(currency => !hiddenCoinsList.includes(currency))}
+          rows={[...items, ...tokens].filter(currency => currency && !hiddenCoinsList.includes(currency))}
           rowRender={(row, index, selectId, handleSelectId) => (
             <Row key={row} currency={row} currencies={currencies} hiddenCoinsList={hiddenCoinsList} selectId={selectId} index={index} handleSelectId={handleSelectId} />
           )}
@@ -288,7 +283,7 @@ export default class Wallet extends Component {
                 id="Wallet156"
                 defaultMessage="Welcome to Atomicswapwallet.io, a decentralized cross-chain wallet supporting Atomic Swaps.
 
-Safely store and promptly exchange Bitcoin, Ethereum, EOS, USD, Tether, BCH, and numerous ERC-20 tokens with other users.
+Safely store and promptly exchange Bitcoin, Ethereum, USD, Tether, and numerous ERC-20 tokens with other users.
 
 Atomicswapwallet.io does not store your keys or tokens. Our wallet operates directly on the browser with no additional installs or downloads required.
 

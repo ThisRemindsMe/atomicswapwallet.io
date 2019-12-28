@@ -3,9 +3,6 @@ export default {
   // bitpay: 'https://test-insight.Atomicswapwallet.io/insight',
   bitpay: 'https://test-insight.bitpay.com',
   etherscan: 'https://rinkeby.etherscan.io',
-  eos: 'https://eospark.com/Jungle',
-  tlos: 'http://testnet.telosfoundation.io',
-  bch: 'https://explorer.bitcoin.com/tbch',
   ltc: 'https://testnet.litecore.io',
   usdt: 'https://omniexplorer.info/',
 }

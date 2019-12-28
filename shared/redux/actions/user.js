@@ -10,7 +10,6 @@ import reducers from 'redux/core/reducers'
 
 const sign = async () => {
   const btcPrivateKey = localStorage.getItem(constants.privateKeyNames.btc)
-  const bchPrivateKey = localStorage.getItem(constants.privateKeyNames.bch)
   const ltcPrivateKey = localStorage.getItem(constants.privateKeyNames.ltc)
   const ethPrivateKey = localStorage.getItem(constants.privateKeyNames.eth)
   const ethKeychainActivated = !!localStorage.getItem(constants.privateKeyNames.ethKeychainPublicKey)
@@ -24,7 +23,6 @@ const sign = async () => {
   } else {
     actions.btc.login(btcPrivateKey)
   }
-  actions.bch.login(bchPrivateKey)
   actions.usdt.login(btcPrivateKey)
   actions.ltc.login(ltcPrivateKey)
 
@@ -38,38 +36,10 @@ const sign = async () => {
   }
   // await actions.nimiq.login(_ethPrivateKey)
 
-  const eosSign = async () => {
-    const eosActivePrivateKey = localStorage.getItem(constants.privateKeyNames.eosPrivateKey)
-    const eosActivePublicKey = localStorage.getItem(constants.privateKeyNames.eosPublicKey)
-    const eosAccount = localStorage.getItem(constants.privateKeyNames.eosAccount)
-
-    if (eosActivePrivateKey && eosActivePublicKey && eosAccount) {
-      await actions.eos.login(eosAccount, eosActivePrivateKey, eosActivePublicKey)
-      await actions.eos.waitAccountActivation()
-    } else {
-      await actions.eos.loginWithNewAccount()
-    }
-
-    await actions.eos.getBalance()
-  }
-
-  const telosSign = async () => {
-    const telosActivePrivateKey = localStorage.getItem(constants.privateKeyNames.telosPrivateKey)
-    const telosActivePublicKey = localStorage.getItem(constants.privateKeyNames.telosPublicKey)
-    const telosAccount = localStorage.getItem(constants.privateKeyNames.telosAccount)
-
-    if (telosActivePrivateKey && telosActivePublicKey && telosAccount) {
-      actions.tlos.login(telosAccount, telosActivePrivateKey, telosActivePublicKey)
-    }
-    await actions.tlos.getBalance()
-  }
-
   const getReputation = async () => {
     await actions.user.getReputation()
   }
 
-  eosSign()
-  telosSign()
   getReputation()
 }
 
@@ -93,11 +63,8 @@ const getBalances = () => {
   actions.eth.getBalance()
   actions.btc.getBalance()
   // actions.xlm.getBalance()
-  actions.bch.getBalance()
   actions.ltc.getBalance()
   actions.usdt.getBalance()
-  actions.eos.getBalance()
-  actions.tlos.getBalance()
 
   Object.keys(config.erc20)
     .forEach(name => {
@@ -106,7 +73,7 @@ const getBalances = () => {
   // actions.nimiq.getBalance()
 }
 
-const getDemoMoney = process.env.MAINNET ? () => {} : () => {
+const getDemoMoney = process.env.MAINNET ? () => { } : () => {
   /* //googe bitcoin (or rinkeby) faucet
   request.get('https://swap.wpmix.net/demokeys.php', {})
     .then((r) => {
@@ -123,7 +90,7 @@ const getExchangeRate = (sellCurrency, buyCurrency) =>
   new Promise((resolve, reject) => {
     const url = `https://api.cryptonator.com/api/full/${sellCurrency}-${buyCurrency}`
 
-    request.get(url).then(({ ticker: { price: exchangeRate } })  => {
+    request.get(url).then(({ ticker: { price: exchangeRate } }) => {
       resolve(exchangeRate)
     })
       .catch(() => {
@@ -138,7 +105,6 @@ const getExchangeRate = (sellCurrency, buyCurrency) =>
 const setTransactions = () =>
   Promise.all([
     actions.btc.getTransaction(),
-    actions.bch.getTransaction(),
     actions.usdt.getTransaction(),
     actions.eth.getTransaction(),
     actions.ltc.getTransaction(),
@@ -151,7 +117,7 @@ const setTransactions = () =>
     })
 
 const getText = () => {
-  const { user : { ethData, btcData, eosData, /* xlmData, */ telosData, bchData, ltcData } } = getState()
+  const { user: { ethData, btcData, /* xlmData, */ ltcData } } = getState()
 
 
   let text = `
@@ -195,36 +161,19 @@ Private key: ${ltcData.privateKey}\r\n
 3. Go to settings > addresses > import\r\n
 4. paste private key and click "Ok"\r\n
 \r\n
-# BITCOINCASH\r\n
-\r\n
-BitcoinCash address: ${bchData.address}\r\n
-Private key: ${bchData.privateKey}\r\n
 \r\n
 1. Go to blockchain.info\r\n
 2. login\r\n
 3. Go to settings > addresses > import\r\n
 4. paste private key and click "Ok"\r\n
 `
-/*
-# XLM\r\n
-\r\n
-XLM Private Key: ${xlmData.keypair.secret()}\r\n
-Address name: ${xlmData.address}\r\n
-\r\n
-*/
-  if (eosData.activePrivateKey) {
-    text = `
-${text}
-# EOS\r\n
-\r\n
-EOS Master Private Key: ${eosData.activePrivateKey}\r\n
-Account name: ${eosData.address}\r\n
-\r\n
-# TELOS\r\n
-\r\n
-TELOS Active Private Key: ${telosData.activePrivateKey}\r\n
-Account name: ${telosData.address}\r\n`
-  }
+  /*
+  # XLM\r\n
+  \r\n
+  XLM Private Key: ${xlmData.keypair.secret()}\r\n
+  Address name: ${xlmData.address}\r\n
+  \r\n
+  */
 
   return text
 }
