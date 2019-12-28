@@ -386,7 +386,7 @@ export default class Row extends Component {
                         <FormattedMessage id="Row235" defaultMessage="Copy" />
                       </span>
                     </ReactTooltip>
-                    }
+
                     {(currency === 'BTC' || currency === 'ETH') && (<KeychainStatus currency={currency} />)
                     }
                   </div>
