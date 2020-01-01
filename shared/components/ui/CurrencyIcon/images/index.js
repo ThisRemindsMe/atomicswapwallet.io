@@ -40,7 +40,6 @@ import dent from './dent.png'
 import snt from './snt.png'
 import udoo from './udoo.png'
 import elet from './elet.png'
-import hype from './hype.png'
 import free from './free.png'
 import innbcl from './innbcl.png'
 import eurs from './eurs.png'
@@ -53,11 +52,11 @@ import p2px from './p2px.png'
 import pixby from './pixby.png'
 import spaz from './spaz.png'
 import ledu from './ledu.png'
-import fex from './fex.png'
 import aet from './aet.png'
 import hex from './hex.png'
 import amn from './amn.png'
 import myd from './myd.png'
+import job from './job.png'
 
 export default {
   btc,
@@ -101,7 +100,6 @@ export default {
   snt,
   udoo,
   elet,
-  hype,
   free,
   innbcl,
   eurs,
@@ -114,9 +112,9 @@ export default {
   pixby,
   spaz,
   ledu,
-  fex,
   aet,
   hex,
   amn,
   myd,
+  job,
 }
