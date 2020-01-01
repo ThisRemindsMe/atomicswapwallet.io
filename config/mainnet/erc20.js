@@ -99,6 +99,11 @@ innbcl: {
     decimals: 10,
     fullName: 'InnovativeBioresearchClassic',
   },
+job: {
+    address: '0x17280DA053596E097604839C61A2eF5efb7d493f',
+    decimals: 8,
+    fullName: 'Jobchain',
+  },    
 ledu: {
     address: '0x5b26c5d0772e5bbac8b3182ae9a13f9bb2d03765',
     decimals: 18,
